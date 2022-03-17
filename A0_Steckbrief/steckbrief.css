@@ -1,0 +1,17 @@
+header{
+    height: 200px;
+    background: url(background_header.png) no-repeat bottom;
+    margin: 0px;
+}
+
+body{
+    color: white;
+    text-align: left;
+    background-color: black;
+    font-style:normal;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li {
+    text-align: left;
+}
