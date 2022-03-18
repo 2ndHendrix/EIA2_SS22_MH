@@ -1,23 +1,21 @@
-// tslint:disable-next-line: no-namespace
 var radnomizedPoemScript;
 (function (radnomizedPoemScript) {
-    var subject = ["Gandalf", "Gimli", "Frodo", "Eragon", "Boromir", "Golum", "Alf", "Wilmar", "Saruman"];
-    var praedicates = ["trägt", "vergisst", "klaut", "snackt", "liebt", "hasst", "riecht", "mag", "fürchtet"];
-    var objects = ["sein zweites Frühstück", "die schwarzen Reiter", "Gondor", "den einen Ring", "Orkses", "Mordor", "Vulkangestein", "Riesenspinnen", "Kriegselefanten"];
-    // tslint:disable-next-line: no-console
-    var versComplete = getVerse(subject, praedicates, objects);
-    console.log(versComplete);
+    let subject = ["Gandalf", "Gimli", "Frodo", "Eragon", "Boromir", "Golum", "Alf", "Wilmar", "Saruman"];
+    let praedicates = ["trägt", "vergisst", "klaut", "snackt", "liebt", "hasst", "riecht", "mag", "fürchtet"];
+    let objects = ["sein zweites Frühstück", "die schwarzen Reiter", "Gondor", "den einen Ring", "Orkses", "Mordor", "Vulkangestein", "Riesenspinnen", "Kriegselefanten"];
+    for (let i = objects.length; i >= 1; i--) {
+        let versComplete = getVerse(subject, praedicates, objects);
+        console.log(versComplete);
+    }
     function getVerse(_sub, _prä, _obj) {
-        var versAufnahme = " ";
-        var _random1 = Math.floor(Math.random() * _sub.length);
-        var wordPick = subject.splice(_random1);
-        versAufnahme = versAufnahme + wordPick[0] + " ";
-        var _random2 = Math.floor(Math.random() * _sub.length);
-        var wordPick2 = subject.splice(_random2);
-        versAufnahme = versAufnahme + wordPick2[0] + " ";
-        var _random3 = Math.floor(Math.random() * _sub.length);
-        var wordPick3 = subject.splice(_random3);
-        versAufnahme = versAufnahme + wordPick3[0] + " ";
+        let _random1 = Math.floor(Math.random() * _sub.length);
+        let _random2 = Math.floor(Math.random() * _prä.length);
+        let _random3 = Math.floor(Math.random() * _obj.length);
+        let versAufnahme = _sub[_random1] + " " + _prä[_random2] + " " + _obj[_random3];
+        _sub.splice(_random1, 1);
+        _prä.splice(_random2, 1);
+        _obj.splice(_random3, 1);
         return versAufnahme;
     }
 })(radnomizedPoemScript || (radnomizedPoemScript = {}));
+//# sourceMappingURL=randomPoem.js.map
