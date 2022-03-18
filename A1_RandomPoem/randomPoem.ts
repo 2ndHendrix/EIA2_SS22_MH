@@ -1,40 +1,29 @@
+// tslint:disable-next-line: no-namespace
 namespace radnomizedPoemScript {
 
-    var array_subjekte: string[];
-    array_subjekte = ["Gandalf", "Gimli", "Frodo", "Eragon", "Boromir", "Golum", "Alf", "Wilmar", "Saruman"];
+    let subject: string[] = ["Gandalf", "Gimli", "Frodo", "Eragon", "Boromir", "Golum", "Alf", "Wilmar", "Saruman"];
+    let praedicates: string[] = ["trägt", "vergisst", "klaut", "snackt", "liebt", "hasst", "riecht", "mag", "fürchtet"];
+    let objects: string[] =["sein zweites Frühstück", "die schwarzen Reiter", "Gondor", "den einen Ring", "Orkses", "Mordor", "Vulkangestein", "Riesenspinnen", "Kriegselefanten"];
 
-    var array_prädikate: string[];
-    array_prädikate = ["trägt", "vergisst", "klaut", "snackt", "liebt", "hasst", "riecht", "mag", "fürchtet"];
-
-    var array_objekte: string[];
-    array_objekte = ["sein zweites Frühstück", "die schwarzen Reiter", "Gondor", "den einen Ring", "Orkses", "Mordor", "Vulkangestein", "Riesenspinnen", "Kriegselefanten"];
-
-    console.log(getVerse(array_objekte, array_prädikate, array_subjekte));
-
+    // tslint:disable-next-line: no-console
+    let versComplete: string= getVerse(subject, praedicates, objects);
+    console.log(versComplete);
 
     function getVerse(_sub: string[], _prä: string[], _obj: string[]) {
 
-        var versAufnahme: string = " ";
+        let versAufnahme: string = " ";
 
-        var _random = Math.random() * _sub.length;
-        var _random = Math.floor(_random);
-        var result: number = _random;
-        var wordPick = array_subjekte.splice(result);
+        let _random1: number = Math.floor(Math.random() * _sub.length);
+        let wordPick = subject.splice(_random1);
         versAufnahme = versAufnahme + wordPick[0] + " ";
 
-        var _random = Math.random() * _prä.length;
-        var _random = Math.floor(_random);
-        var result: number = _random;
-        var wordPick = array_prädikate.splice(result);
-        versAufnahme = versAufnahme + wordPick[0] + " ";
+        let _random2: number = Math.floor(Math.random() * _sub.length);
+        let wordPick2 = subject.splice(_random2);
+        versAufnahme = versAufnahme + wordPick2[0] + " ";
 
-        var _random = Math.random() * _obj.length;
-        var _random = Math.floor(_random);
-        var result: number = _random;
-        var wordPick = array_objekte.splice(result);
-        versAufnahme = versAufnahme + wordPick[0];
-
-        console.log(result);
+        let _random3: number = Math.floor(Math.random() * _sub.length);
+        let wordPick3 = subject.splice(_random3);
+        versAufnahme = versAufnahme + wordPick3[0] + " ";
 
         return versAufnahme;
 
