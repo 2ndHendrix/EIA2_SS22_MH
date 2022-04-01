@@ -1,0 +1,49 @@
+#div0{
+    position: relative;
+    width: 40%;
+    height: 500px;
+    left:5%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: rgb(201, 201, 201);;
+    float: left;
+}
+
+#div1{
+    position: relative;
+    width: 40%;
+    height: 500px;
+    right:5%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: rgb(201, 201, 201);
+    float: right;
+
+}
+
+#spanID{
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    border-width: 5px;
+    background-color: grey;
+    border-color: black;
+    height: 150px;
+    width: 150px;
+}
+
+#button1{
+    position: absolute;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    height: 60px;
+    top: 250px;
+    left: 250px;
+}
+
+#button1:hover{
+    background-color: white;
+    color: blue;
+}
+
