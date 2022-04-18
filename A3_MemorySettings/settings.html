@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Settings</title>
+    <script src="memorySettings.js"></script>
+    <link rel="stylesheet" href="A3_Stylesheet.css">
+</head>
+
+<!--Aufgabe: L03_MemorySettings>
+        Name: <Manuel Hubert>
+        Matrikel: <271345>
+        Datum: <17.04.2022>
+        Quellen: <Internet, Zusammenarbeit mit Komillitonen> -->
+
+<body>
+    <div id="timer"></div>
+    <h1>Memory Game</h1>
+    <form id="main">
+
+        <fieldset id="amountPairs">
+            <label for="amountPairs">Number of pairs:</label>
+            <input type="number" id="amountPairs" name="amountPairs" min="5" max="25" step="1" value="5">
+        </fieldset>
+
+        <fieldset id="size">
+            <label for="size">Size of cards:</label>
+            <input type="range" name="cardSize" id="size" min="100" max="150" step="1" value="100">
+        </fieldset>
+
+        <fieldset id="cardsColorF">
+            <label for="cardsColorF">Background color:</label>
+            <input type="color" id="cardsColorF" name="cardsColor" value="#ffffff">
+        </fieldset>
+
+        <fieldset id="cardsColorF">
+            <label for="cardsColorB">Backside color:</label>
+            <input type="color" id="cardsColorB" name="cardsColorF" value="#00ff00">
+        </fieldset>
+
+        <fieldset id="cardsColorF">
+            <label for="fontColor">Font color:</label>
+            <input type="color" id="fontColor" name="cardsColorB" value="#0000ff">
+        </fieldset>
+
+        <fieldset id="fontPick">
+            <label for="fontPick">Choose Font</label>
+            <select name="fontPick" id="fontPick">
+                <option value="Courier">Courier</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Arial">Arial</option>
+            </select>
+        </fieldset>
+        <br>
+        <button type="submit" id="startGameButton" name="startGameButton">Start Game</button>
+
+    </form>
+
+    <div id="message">
+        <div id="win"></div>
+        <button id="newGame" onclick="window.location.reload();">Try again!</button>
+    </div>
+
+    <div id="board"></div>
+
+</body>
+
+</html>
