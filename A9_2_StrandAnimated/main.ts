@@ -17,11 +17,10 @@ namespace beachAnimation {
         context.canvas.width = 380;
         context.canvas.height = 680;
 
-        buildCloud(4);
-        buildBird(3);
+        buildCloud(1);
+        buildBird(1);
         buildShip(1);
 
-        window.setInterval(update, 15);
 
     }
 
@@ -30,23 +29,54 @@ namespace beachAnimation {
         for (let i: number = 0; i < _cloudNum; i++) {
             let cloud: Cloud = new Cloud(1);
             cloudArray.push(cloud);
+            window.setInterval(update, 10);
         }
-    }
 
-    // Draw and animate SHIP
-    function buildShip(_shipNum: number): void {
-        for (let i: number = 0; i < _shipNum; i++) {
-            let ship: Ship = new Ship(1);
-            shipArray.push(ship);
-        }
     }
-
     // Draw and animate BIRD
     function buildBird(_birdNum: number): void {
         for (let i: number = 0; i < _birdNum; i++) {
             let bird: Bird = new Bird(1);
             birdArray.push(bird);
+            window.setInterval(update, 10);
         }
+    }
+    // Draw and animate SHIP
+    function buildShip(_shipNum: number): void {
+        for (let i: number = 0; i < _shipNum; i++) {
+            let ship: Ship = new Ship(3);
+            shipArray.push(ship);
+            window.setInterval(update, 10);
+        }
+    }
+
+
+
+
+    function update(): void {
+
+        // context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+        // context.clearRect(0, 0, 380, 680);
+
+        background(0, 0);
+
+        for (let cloud of cloudArray) {
+            cloud.animate(4 / 50);
+            cloud.draw();
+        }
+
+        for (let bird of birdArray) {
+            bird.animateBird(1 / 50);
+            bird.drawBird();
+        }
+
+        for (let ship of shipArray) {
+            ship.animate(4 / 50);
+            ship.draw();
+        }
+
+       
+
     }
 
     function background(_x: number, _y: number): void {
@@ -170,26 +200,4 @@ namespace beachAnimation {
     }
 
 
-    function update(): void {
-
-        // context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-
-        // context.clearRect(0, 0, 380, 680);
-        background(0, 0);
-        for (let bird of birdArray) {
-            bird.animate(1 / 50);
-            bird.draw();
-        }
-
-        for (let ship of shipArray) {
-            ship.animate(1 / 50);
-            ship.draw();
-        }
-
-        for (let cloud of cloudArray) {
-            cloud.animate(1 / 50);
-            cloud.draw();
-        }
-
-    }
 }

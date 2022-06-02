@@ -9,7 +9,7 @@ var beachAnimation;
                 this.position = _position;
             else
                 this.position = new beachAnimation.Vector(50, 50);
-            this.velocity = new beachAnimation.Vector(5, 0);
+            this.velocity = new beachAnimation.Vector(3, 0);
             this.size = _size;
         }
         animate(_timeslice) {

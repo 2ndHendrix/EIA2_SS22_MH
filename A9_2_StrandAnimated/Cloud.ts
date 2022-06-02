@@ -10,10 +10,9 @@ namespace beachAnimation {
                 this.position = _position;
             else
                 this.position = new Vector(50, 50); 
-            this.velocity = new Vector(5, 0); 
+            this.velocity = new Vector(3, 0); 
             this.size = _size;
         }
-
 
         animate(_timeslice: number): void {
             let movement: Vector = new Vector(this.velocity.x, this.velocity.y);
