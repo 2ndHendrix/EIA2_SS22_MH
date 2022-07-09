@@ -20,7 +20,9 @@ namespace MemoryGame {
     function hndload(_event: Event): void {
         board = <HTMLDivElement>document.querySelector("#board");
         board.classList.add("visible");
+
         startGameButton = <HTMLElement>document.querySelector("#startGameButton");
+        
         main = <HTMLFormElement>document.querySelector("#main");
         main.addEventListener("submit", hndchange);
         winMessage = <HTMLSpanElement>document.querySelector("#message");
