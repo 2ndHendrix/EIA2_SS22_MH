@@ -4,12 +4,10 @@ var GardensSimulator;
         target;
         condition;
         amountFields;
-        constructor(_position) {
-            if (_position)
-                this.target = _position;
-            else
-                this.target = new GardensSimulator.Position(50, 50);
-            this.target = new GardensSimulator.Position(1, 0);
+        constructor(_target, _condition, _amountFields) {
+            this.target = _target;
+            this.condition = _condition;
+            this.amountFields = _amountFields;
         }
         build() {
             console.log("1Farm build");

@@ -1,22 +1,32 @@
 var GardensSimulator;
 (function (GardensSimulator) {
     class Field extends GardensSimulator.Farm {
-        plantSeedling() {
-            console.log("planting seedlings");
+        path = new Path2D();
+        amount;
+        field;
+        position;
+        constructor(_amount, _field) {
+            super();
+            this.amount = _amount;
+            this.field = _field;
+            this.position = new GardensSimulator.Position(300, 300);
+            this.build();
         }
         build() {
-            for (let index = 1; index < 10; index++) {
-                let fieldPlus = 100;
-                GardensSimulator.context.save();
-                GardensSimulator.context.beginPath();
-                GardensSimulator.context.fillStyle = "#28df95";
-                GardensSimulator.context.fillRect(this.target.posX + fieldPlus, this.target.posY + fieldPlus, 100, 100);
-                GardensSimulator.context.fill();
-                GardensSimulator.context.closePath();
-                GardensSimulator.context.restore();
-                console.log("Test Field");
-                fieldPlus = fieldPlus + 100;
-            }
+            GardensSimulator.context.fill(this.path);
+            GardensSimulator.context.fillStyle = "#00ff7f";
+            console.log("Test field XXX");
+            this.drawField();
+        }
+        drawField() {
+            GardensSimulator.context.beginPath();
+            GardensSimulator.context.fillStyle = "#28df95";
+            GardensSimulator.context.fillRect(this.target.posX, this.target.posY, 100, 100);
+            GardensSimulator.context.fill();
+            GardensSimulator.context.closePath();
+        }
+        plantSeedling() {
+            console.log("planting seedlings");
         }
     }
     GardensSimulator.Field = Field;

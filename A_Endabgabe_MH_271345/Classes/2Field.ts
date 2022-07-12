@@ -2,30 +2,45 @@ namespace GardensSimulator {
 
     export class Field extends Farm {
 
-        plantSeedling(): void {
-            console.log("planting seedlings");
+        public path: Path2D = new Path2D();
+
+        amount: number;
+        field: Position;
+        position: Position;
+
+
+        constructor(_amount?: number, _field?: Position) {
+            super();
+            this.amount = _amount;
+            this.field = _field;
+            this.position = new Position(300, 300);
+            this.build();
         }
 
 
         build(): void {
+            context.fill(this.path);
+            context.fillStyle = "#00ff7f";
+            console.log("Test field XXX");
 
-            for (let index: number = 1; index < 10; index++) {
+            this.drawField();
+        }
 
-                let fieldPlus: number = 100;
-                context.save();
+        drawField(): void { //Pfadmodell das wiederverwendbar ist
 
-                context.beginPath();
-                context.fillStyle = "#28df95";
-                context.fillRect(this.target.posX + fieldPlus, this.target.posY + fieldPlus, 100, 100);
-                context.fill();
-                context.closePath();
+            context.beginPath();
+            context.fillStyle = "#28df95";
+            context.fillRect(this.target.posX, this.target.posY, 100, 100);
+            context.fill();
+            context.closePath();
 
-                context.restore();
 
-                console.log("Test Field");
 
-                fieldPlus = fieldPlus + 100;
-            }
+
+        }
+        plantSeedling(): void {
+            console.log("planting seedlings");
         }
     }
+
 }

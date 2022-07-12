@@ -14,20 +14,17 @@ var GardensSimulator;
         startGameForm = document.querySelector("#startGameForm");
         startGameForm.addEventListener("submit", hndchange);
         startSimulationButton.addEventListener("click", startGame);
-        console.log("Handled");
     }
     function startGame(_event) {
         let startGameMenu = document.querySelector("#startGameMenu");
         startGameMenu.style.display = "none";
         console.log("Game starts");
         main.style.display = "";
-        buildField();
-        updateFarm();
+        buildFields();
+        //updateFarm();
         getFunds();
-        setWorthHarvest();
-        pricePlant();
-        setPriceConsumalbles();
         setInterval(updatePrices, 1000);
+        // setInterval(updateFarm)
     }
     function updatePrices() {
         setWorthHarvest();
@@ -65,26 +62,17 @@ var GardensSimulator;
         _event.preventDefault();
         let formData = new FormData(document.forms[0]);
     }
-    function buildField() {
-        let field = new GardensSimulator.Field();
-        farm.push(field);
-        for (let index = 0; index <= 5; index++) {
-            document.querySelector("row" + index);
-            let rows = document.getElementById("row" + index);
-            for (let index = 0; index <= 8; index++) {
-                let fieldHTML = document.createElement("div");
-                fieldHTML.classList.add("field");
-                rows.appendChild(fieldHTML);
-            }
-        }
+    function buildFields() {
+        let field = new GardensSimulator.Field(); // Instanzierung von field
+        farm.push(field); // Aufrufen von field aus Farm
     }
-    function updateFarm() {
-        for (let farms of farm) {
-            farms.build();
-            farms.water();
-            farms.fertilize();
-            farms.pesticide();
-        }
-    }
+    // function updateFarm(): void {
+    //     for (let farms of farm) {
+    //         farms.build();
+    //         farms.water();
+    //         farms.fertilize();
+    //         farms.pesticide();
+    //     }
+    // }
 })(GardensSimulator || (GardensSimulator = {}));
 //# sourceMappingURL=main.js.map

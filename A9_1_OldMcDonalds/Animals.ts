@@ -7,7 +7,7 @@ namespace A9_1_OldMcDonalds {
         foodAmount: number;
         species: string;
 
-        constructor(_species: string, _name: string, _sound: string, _food: string, _foodAmount: number,) {
+        constructor(_species: string, _name: string, _sound: string, _food: string, _foodAmount: number) {
             this.species = _species;
             this.name = _name;
             this.sound = _sound;

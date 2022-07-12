@@ -1,17 +1,14 @@
 namespace GardensSimulator {
 
     export class Farm {
-        target: Position;
-        condition: string;
-        amountFields: number;
+       public target: Position;
+       public condition: string;
+       public amountFields: number;
 
-        constructor(_position?: Position) {
-            if (_position)
-                this.target = _position;
-            else
-                this.target = new Position(50, 50);
-
-            this.target = new Position(1, 0);
+        constructor(_target?: Position, _condition?: string, _amountFields?: number) {
+            this.target = _target;
+            this.condition = _condition;
+            this.amountFields = _amountFields;
 
 
         }

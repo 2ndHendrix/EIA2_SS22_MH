@@ -24,22 +24,20 @@ namespace GardensSimulator {
         startGameForm.addEventListener("submit", hndchange);
 
         startSimulationButton.addEventListener("click", startGame);
-        console.log("Handled");
 
     }
+
     function startGame(_event: Event): void {
         let startGameMenu: HTMLDivElement = <HTMLDivElement>document.querySelector("#startGameMenu");
         startGameMenu.style.display = "none";
         console.log("Game starts");
         main.style.display = "";
 
-        buildField();
-        updateFarm();
+        buildFields();
+        //updateFarm();
         getFunds();
-        setWorthHarvest();
-        pricePlant();
-        setPriceConsumalbles();
         setInterval(updatePrices, 1000);
+       // setInterval(updateFarm)
 
     }
 
@@ -98,34 +96,24 @@ namespace GardensSimulator {
 
     }
 
-    function buildField(): void {
-        let field: Field = new Field();
-        farm.push(field);
-
-        for (let index: number = 0; index <= 5; index++) {
-            document.querySelector("row" + index);
-            let rows: HTMLDivElement = <HTMLDivElement>document.getElementById("row" + index);
-
-            for (let index: number = 0; index <= 8; index++) {
-                let fieldHTML: HTMLDivElement = <HTMLDivElement>document.createElement("div");
-                fieldHTML.classList.add("field");
-                rows.appendChild(fieldHTML);                
-            }
-        }
-
-    }
-
-    function updateFarm(): void {
-        for (let farms of farm) {
-            farms.build();
-            farms.water();
-            farms.fertilize();
-            farms.pesticide();
-
-        }
+    function buildFields(): void {
+        let field: Field = new Field();     // Instanzierung von field
+        farm.push(field);                   // Aufrufen von field aus Farm
 
 
     }
+
+    // function updateFarm(): void {
+    //     for (let farms of farm) {
+    //         farms.build();
+    //         farms.water();
+    //         farms.fertilize();
+    //         farms.pesticide();
+
+    //     }
+
+
+    // }
 
 
 

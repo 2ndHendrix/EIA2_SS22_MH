@@ -6,6 +6,11 @@ body {
     width: 100%;
 }
 
+canvas{
+    width:1000px;
+    height: 1000px;
+}
+
 #main{
   min-height: 100%;
 }
