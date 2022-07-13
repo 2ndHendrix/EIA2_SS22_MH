@@ -6,27 +6,16 @@ var GardensSimulator;
         field;
         position;
         constructor(_amount, _field) {
-            super();
+            super(_field);
             this.amount = _amount;
             this.field = _field;
-            this.position = new GardensSimulator.Position(300, 300);
-            this.build();
+            this.position = new GardensSimulator.Position(50, 250);
         }
         build() {
-            GardensSimulator.context.fill(this.path);
-            GardensSimulator.context.fillStyle = "#00ff7f";
-            console.log("Test field XXX");
-            this.drawField();
-        }
-        drawField() {
-            GardensSimulator.context.beginPath();
+            GardensSimulator.context.fillStyle = "#84843C";
+            GardensSimulator.context.fillRect(this.position.posX, this.position.posY, 100, 100);
             GardensSimulator.context.fillStyle = "#28df95";
-            GardensSimulator.context.fillRect(this.target.posX, this.target.posY, 100, 100);
-            GardensSimulator.context.fill();
-            GardensSimulator.context.closePath();
-        }
-        plantSeedling() {
-            console.log("planting seedlings");
+            GardensSimulator.context.fillRect(this.position.posX + 10, this.position.posY + 10, 80, 80);
         }
     }
     GardensSimulator.Field = Field;

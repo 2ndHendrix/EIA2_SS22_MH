@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gemüsegarten-Simulator</title>
 
+    <script src="main.js"></script>
     <script src="Classes/1Farm.js"></script>
     <script src="Classes/2Field.js"></script>
     <script src="Classes/3Plants.js"></script>
@@ -40,8 +41,8 @@
             <input type="number" id="fundsAtStart" name="Funds" value="500" min="500" max="2500" step="50">
 
             <h2 id="pricerange">Price range of consumalbles</h2>
-            <input type="number" id="priceRangeLow" value="1" min="1" max="26" step="5">
-            <input type="number" id="priceRangeHigh" value="25" min="25" max="50" step="5">
+            <input type="number" id="priceRangeLow" value="5" min="5" max="20" step="5">
+            <input type="number" id="priceRangeHigh" value="25" min="25" max="75" step="5">
 
         </form>
     </div>
@@ -50,8 +51,16 @@
     <div id="main">
         <!--Opens when "Start Simulation" button is clicked-->
 
-        <canvas></canvas>
+        <canvas height="680px" width="1800px"></canvas>
 
+        <!--Rows with fields inside-->
+        <div class="row" id="row0"></div>
+        <div class="row" id="row1"></div>
+        <div class="row" id="row2"></div>
+        <div class="row" id="row3"></div>
+        <div class="row" id="row4"></div>
+
+        <!--Menu that shows the changing prices of Consumables, Harvest and the players funds-->
         <div id="financeMenu">
             <div class="images">
                 <img id="plantIMG" src="icons/growth.png" height="35" width="35">
@@ -83,7 +92,7 @@
         <div id="mainMenu">
             <!--Menu for planting, harbesting, buying items-->
             <div id="actionsMenu">
-                <h3>Actions</h3>
+                <h3>Plant</h3>
                 <button type="button" id="broccoli"><img src="icons/broccoli.png" height="35"></button>
                 <button type="button" id="cabbage"><img src="icons/cabbage.png" height="35"></button>
                 <button type="button" id="corn"><img src="icons/corn.png" height="35"></button>
@@ -93,7 +102,7 @@
 
             <div id="harvestMenu">
                 <h3>Harvest</h3>
-                <button type="button" id="harvest"><img src="icons/spinach.png" height="35"></button>
+                <button type="button" id="harvest"><img src="icons/sickle.png" height="35"></button>
 
             </div>
 
@@ -103,23 +112,23 @@
 
                     <div id="pesticidesMenu">
                         <label for="pesticidesMenu">Pesticides</label>
-                        <input type="number" id="numberPesticides" name="Pesticides" value="1" min="1" max="15"
-                            step="1">
-                        <button type="submit" id="submitPesticides"><img src="icons/skull.png" height="35"></button>
-
+                        <input type="range" id="setPesticides" name="Pesticides" value="1" min="1" max="15" step="1">
+                        <button type="button" id="buttonPesticides"><img src="icons/skull.png" height="35"></button>
+                        <p type="number" id="amountPesticides"></p>
                     </div>
                     <div id="waterMenu">
                         <label for="waterMenu">Water</label>
-                        <input type="number" id="numberWater" name="Water" value="1" min="1" max="15" step="1">
-                        <button type="submit" id="submitWater"><img src="icons/water.png" height="35"></button>
+                        <input type="range" id="setWater" name="Water" value="1" min="1" max="15" step="1">
+                        <button type="button" id="buttonWater"><img src="icons/water.png" height="35"></button>
+                        <p id="amountWater"></p>
 
                     </div>
                     <div id="fertilizeMenu">
                         <label for="fertilizeMenu">Fertilizer</label>
-                        <input type="number" id="numberFertilizer" name="Fertilizer" value="1" min="1" max="15"
-                            step="1">
-                        <button type="submit" id="submitFertilizer"><img src="icons/fertilizer.png"
+                        <input type="range" id="setFertilizer" name="Fertilizer" value="1" min="1" max="15" step="1">
+                        <button type="button" id="buttonFertilizer"><img src="icons/fertilizer.png"
                                 height="35"></button>
+                        <p id="amountFertilizer"></p>
 
                     </div>
                 </form>
@@ -128,6 +137,5 @@
         </div>
     </div>
 </body>
-<script src="main.js"></script>
 
 </html>

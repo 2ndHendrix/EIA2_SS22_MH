@@ -10,37 +10,24 @@ namespace GardensSimulator {
 
 
         constructor(_amount?: number, _field?: Position) {
-            super();
+            super(_field);
             this.amount = _amount;
             this.field = _field;
-            this.position = new Position(300, 300);
-            this.build();
+            this.position = new Position(50, 250);
         }
 
 
         build(): void {
-            context.fill(this.path);
-            context.fillStyle = "#00ff7f";
-            console.log("Test field XXX");
 
-            this.drawField();
-        }
-
-        drawField(): void { //Pfadmodell das wiederverwendbar ist
-
-            context.beginPath();
+            context.fillStyle = "#84843C"; 
+            context.fillRect(this.position.posX, this.position.posY, 100, 100);
             context.fillStyle = "#28df95";
-            context.fillRect(this.target.posX, this.target.posY, 100, 100);
-            context.fill();
-            context.closePath();
-
-
-
+            context.fillRect(this.position.posX + 10, this.position.posY + 10, 80, 80);
 
         }
-        plantSeedling(): void {
-            console.log("planting seedlings");
-        }
+        // plantSeedling(): void {
+        //     console.log("planting seedlings");
+        // }
     }
 
 }
